@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="pos_order_template" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+<!--                <link rel="stylesheet" href="/3mit_pos_client_camp/static/src/css/pos_orders.css" />-->
+                <script type="text/javascript" src="/3mit_pos_client_camp/static/src/js/campos.js"/>
+                <script type="text/javascript" src="/3mit_pos_client_camp/static/src/js/widget_validacion_cliente.js"/>
+                <script type="text/javascript" src="/3mit_pos_client_camp/static/src/js/db.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

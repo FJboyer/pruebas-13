@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+     <!-- <t t-extend="Chrome">
+        <t-j t-jquery='.pos' t-operation='before'>
+        
+            <script >
+            window.alert('hi')
+            _Z=<t t-raw="JSON.stringify(widget.pos.company)"/>
+            </script>
+            <script type="text/javascript" src="http://localhost:5000/sitef.js"/>
+        </t-j>
+    </t> -->
+
+
+    <t t-name="PaymentScreenElectronicPayment">
+        <tr class="send_request paymentline electronic_payment" />
+        <tr class="paymentline electronic_payment">
+            <t t-if="line.payment_status == 'pending'">
+                <td colspan="3">
+                    <span id="sitef_payment_statusInfo">
+                        <t t-esc="line.payment_statusInfo or 'Payment request pending'" />
+                    </span>
+                </td>
+                <td colspan="2" class='button send_payment_request highlight' title="Send Payment Request"
+                    t-att-data-cid='line.cid'>
+                    Send
+                </td>
+            </t>
+            <t t-elif="line.payment_status == 'retry'">
+                <td colspan="3">
+                    <span id="sitef_payment_statusInfo">
+                        <t t-esc="line.payment_statusInfo or 'Transaction cancelled'" />
+                    </span>
+                </td>
+                <td colspan="2" class='button send_payment_request highlight' title="Send Payment Request"
+                    t-att-data-cid='line.cid'>
+                    Retry
+                </td>
+            </t>
+            <t t-elif="line.payment_status == 'force_done'">
+                <td colspan="3">
+                    <span id="sitef_payment_statusInfo">
+                        <t t-esc="line.payment_statusInfo or 'Connection error'" />
+
+                    </span>
+                </td>
+                <td colspan="2" class='button send_force_done' title="Force Done" t-att-data-cid='line.cid'>
+                    Force done
+                </td>
+            </t>
+            <t t-elif="line.payment_status == 'waitingCard'">
+                <td colspan="3">
+                    <span id="sitef_payment_statusInfo">
+                        <t t-esc="line.payment_statusInfo or 'Waiting for card'" />
+
+                    </span>
+                </td>
+                <td colspan="2" class='button send_payment_cancel' title="Cancel Payment Request"
+                    t-att-data-cid='line.cid'>
+                    Cancel
+                </td>
+            </t>
+            <t t-elif="['waiting', 'waitingCancel'].includes(line.payment_status)">
+                <td colspan="3">
+                    <span id="sitef_payment_statusInfo">
+                        <t t-esc="line.payment_statusInfo or 'Request sent'" />
+                    </span>
+
+                </td>
+                <td colspan="2">
+                    <i class='fa fa-spinner fa-spin' role='img' />
+                </td>
+            </t>
+            <t t-elif="line.payment_status == 'reversing'">
+                <td colspan="3">
+                    <span id="sitef_payment_statusInfo">
+                        <t t-esc="line.payment_statusInfo or 'Reversal request sent to terminal'" />
+
+                    </span>
+                </td>
+                <td colspan="2">
+                    <i class='fa fa-spinner fa-spin' role='img' />
+                </td>
+            </t>
+            <t t-elif="line.payment_status == 'done'">
+                <t t-if="line.can_be_reversed">
+                    <td colspan="3">
+                        Payment Successful
+                    </td>
+                    <td colspan="2" class='button send_payment_reversal' title="Reverse Payment"
+                        t-att-data-cid='line.cid'>
+                        Reverse
+                    </td>
+                </t>
+                <t t-else="">
+                    <td colspan="5">
+                        Payment Successful
+                    </td>
+                </t>
+            </t>
+            <t t-elif="line.payment_status == 'reversed'">
+
+                <td colspan="5">
+                    <span id="sitef_payment_statusInfo">
+                        Payment reversed
+                    </span>
+                </td>
+
+            </t>
+
+        </tr>
+
+    </t>
+
+    <t t-name="3mit_pos_sitef.voucher">
+        <div role="dialog" class="modal-dialog">
+         <div class="popup voucher" style="height:500px">
+                <p class="title"><t t-esc=" widget.options.title || 'Alert' " /></p>
+                <div class="body">
+                    <pre style="background-color: white;
+                                font-size: 0.6em;
+                                padding: 10px;
+                                margin: auto;
+                                width: min-content;
+                                text-align: left;">
+                        <t t-raw="widget.options.body"/>
+                    </pre>
+                </div>
+                <div class="footer">
+                    <div class="button confirm">
+                        Ok
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>
