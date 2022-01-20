@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_3mit_menu_sitef_wizard_sitef,3mit_menu_sitef.wizard_sitef,model_wizard_sitef,,1,1,1,1

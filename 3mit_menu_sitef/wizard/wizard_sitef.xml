@@ -1,0 +1,48 @@
+<odoo>
+    <template id="assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/3mit_menu_sitef/static/js/sitef_funciones.js"></script>
+            <script type="text/javascript" src="/3mit_menu_sitef/static/js/dialog.js"></script>
+        </xpath>
+    </template>
+    <data>
+        <record id="view_sitef_wizard" model="ir.ui.view">
+            <field name="name">wizard.sitef.form</field>
+            <field name="model">wizard.sitef</field>
+            <field name="arch" type="xml">
+                <form string="Funciones Sitef" js_class="sitef_admin">
+                    <script>
+                        $(document).ready(function () {
+                            //  $('.modal-dialog').css({'width': '50%'});
+                        });
+                    </script>
+                    <div>
+                        <group>
+                            <field name="sitef_restApi" invisible="1" />
+                            <field name="tipo_funcion" string="Seleccione la Operación" />
+                        </group>
+                        <div class="status"></div>
+                    </div>
+                    <footer>
+                        <button name="click_me" string="Hacer" class="oe_highlight" />
+                        <button string="Cerrar" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_sitef" model="ir.actions.act_window">
+            <field name="name">Funciones Generales Sitef</field>
+            <field name="res_model">wizard.sitef</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_sitef_wizard" />
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem id="action_wizard_sitef_menu" parent="point_of_sale.menu_point_root" action="action_wizard_sitef"
+            name="Sitef" sequence="2" />
+
+    </data>
+</odoo>
