@@ -24,5 +24,5 @@ class CurrencyRateNew(models.Model):
         for prod in productos:
             if prod.aux_price != 0:
                 monto_aux = prod.aux_price
-                prod.list_price = monto_aux * tasa
+                prod.list_price = monto_aux / tasa
         return
