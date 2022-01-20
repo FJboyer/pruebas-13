@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record id="agregar_tasa" model="ir.ui.view">
+            <field name="name">Agregar columna de descripcion a las tasas</field>
+            <field name="model">account.advanced.payment</field>
+            <field name="inherit_id" ref="3mit_account_advance_payment.account_advance_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_register_advance']" position="after">
+                    <button name="revisar_cambiar_fechas" type="object" string="arreglar" class="oe_highlight"></button>
+                </xpath>
+            </field>
+        </record>
+  </data>
+</odoo>
