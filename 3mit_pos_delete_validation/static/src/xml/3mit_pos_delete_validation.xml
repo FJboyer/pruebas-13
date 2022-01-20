@@ -1,0 +1,47 @@
+<templates id="pos_admin_code" xml:space="preserve" >
+    <t t-extend="TextInputPopupWidget">
+        <t t-jquery="input[type='text']" t-operation="replace">
+            <input type="password" t-att-value="widget.options.value || ''"/>
+        </t>
+    </t>
+    <t t-name="CodeAdminPopup">
+        <div role="dialog" class="modal-dialog">
+            <div id="code-admin" class="popup popup-number code-admin-popup">
+                <header class="code-admin-title"><t t-esc=" widget.options.title || '' " /></header>
+                <div class='code-admin-popup-input value active'>
+                    <t t-esc='widget.inputbuffer' />
+                </div>
+                <div class='popup-numpad'>
+                    <button class="code-admin-input-button input-button number-char" data-action='1'>1</button>
+                    <button class="code-admin-input-button input-button number-char" data-action='2'>2</button>
+                    <button class="code-admin-input-button input-button number-char" data-action='3'>3</button>
+                    
+                    <br />
+                    <button class="code-admin-input-button input-button number-char" data-action='4'>4</button>
+                    <button class="code-admin-input-button input-button number-char" data-action='5'>5</button>
+                    <button class="code-admin-input-button input-button number-char" data-action='6'>6</button>
+                    
+                    <br />
+                    <button class="code-admin-input-button input-button number-char" data-action='7'>7</button>
+                    <button class="code-admin-input-button input-button number-char" data-action='8'>8</button>
+                    <button class="code-admin-input-button input-button number-char" data-action='9'>9</button>
+                    
+                    <br />
+                    <button class="code-admin-input-button input-button numpad-char" data-action='CLEAR' >C</button>
+                    <button class="code-admin-input-button input-button number-char" data-action='0'>0</button>
+                    
+                    
+                    <br />
+                </div>
+                <footer class="footer centered">
+                    <div class="button cancel">
+                        Cancel
+                    </div>
+                    <div class="button confirm">
+                        Ok
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+</templates>

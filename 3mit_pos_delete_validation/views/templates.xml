@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <template id="assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/css" href="/3mit_pos_delete_validation/static/src/css/style.css"/>
+                <script type="text/javascript" src="/3mit_pos_delete_validation/static/src/js/3mit_pos_delete_validation.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>
